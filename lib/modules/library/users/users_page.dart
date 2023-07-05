@@ -16,7 +16,7 @@ class UsersPage extends StatelessWidget {
       title: "Users Page Title",
       body: Container(
         margin: const EdgeInsets.only(top: 10),
-        child: BlocBuilder(
+        child: BlocBuilder<UsersBloc, UsersState>(
           bloc: _usersBloc,
           builder: (context, state) {
             if (state is UsersLoading) {
@@ -24,21 +24,16 @@ class UsersPage extends StatelessWidget {
             } else if (state is UsersFailure) {
               return Text(state.message);
             } else if (state is UsersSuccess) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: state.users
-                    .map(
-                      (user) => [
-                        SizedBox(
-                          height:
-                              50, // İstediğiniz yüksekliği burada belirleyebilirsiniz
-                        ),
-                        UserTile(user: user),
-                      ],
-                    )
-                    .expand((pair) => pair)
-                    .toList(),
+              state.users.sort((a, b) => a.name.compareTo(b.name)); // Kullanıcıları isimlerine göre sırala
+              return ListView.builder(
+                itemCount: state.users.length,
+                itemBuilder: (context, index) {
+                  final user = state.users[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 16.0),
+                    child: UserTile(user: user),
+                  );
+                },
               );
             } else {
               return const SizedBox.shrink();

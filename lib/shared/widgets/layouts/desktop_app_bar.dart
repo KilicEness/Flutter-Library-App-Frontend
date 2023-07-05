@@ -65,13 +65,6 @@ class _DesktopAppBarState extends State<DesktopAppBar> {
         ],
       ),
       actions: [
-         IconButton(
-             onPressed: () {},
-             icon: Icon(
-               Icons.notifications,
-               color: Colors.grey.shade500,
-             )),
-
         widget.user,
         const SizedBox(
           width: 20,

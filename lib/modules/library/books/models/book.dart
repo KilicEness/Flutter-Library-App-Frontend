@@ -1,18 +1,22 @@
+import 'package:library_app/shared/models/user.dart';
+
 class BookModel {
   late String name;
   late String author;
   late bool completed;
   late String ownerId;
-  late String? ownerName;
+  late String ownerName;
   late String? createdAt;
   late String? updatedAt;
+  // late final UserModel? owner;
 
   BookModel({
     required this.name,
     required this.author,
     required this.completed,
     required this.ownerId,
-    this.ownerName,
+    required this.ownerName,
+    // required this.owner,
     this.createdAt,
     this.updatedAt,
   });
@@ -22,6 +26,7 @@ class BookModel {
     author = json['author'];
     completed = json['completed'];
     ownerId = json['ownerId'];
+    // owner = json['owner'];
     ownerName = json['ownerName'];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];

@@ -2,10 +2,13 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:library_app/modules/library/books/bloc/books_bloc.dart';
 import 'package:library_app/modules/library/books/books_page.dart';
 import 'package:library_app/modules/library/books/services/books_service.dart';
+import 'package:library_app/modules/library/user_detail/bloc/user_detail_bloc.dart';
+import 'package:library_app/modules/library/user_detail/services/user_detail_service.dart';
 import 'package:library_app/modules/library/users/bloc/users_bloc.dart';
 import 'package:library_app/modules/library/users/users_page.dart';
 import 'package:library_app/modules/library/users/services/users_service.dart';
 import 'package:library_app/shared/helpers/networking.dart';
+import 'package:library_app/modules/library/user_detail/user_detail_page.dart';
 
 //Dashboard
 import './dashboard/dashboard_page.dart';
@@ -22,7 +25,12 @@ class Library extends Module {
             (i) =>
                 UsersBloc(iUsersService: UsersService(network: DioNetwork())),
             isLazy: true,
-            isSingleton: true),    
+            isSingleton: true),
+        Bind(
+            (i) =>
+                UserDetailBloc(iUserDetailService: UserDetailService(network: DioNetwork())),
+            isLazy: true,
+            isSingleton: true),
       ];
 
   @override
@@ -31,5 +39,7 @@ class Library extends Module {
         ChildRoute('/dashboard', child: (_, args) => const DashboardPage()),
         ChildRoute('/books', child: (_, args) => BooksPage()),
         ChildRoute('/users', child: (_, args) => UsersPage()),
+        ChildRoute('/users/:userId',
+            child: (_, args) => UserDetailPage(userId: args.params['userId'])),
       ];
 }

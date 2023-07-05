@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../services/i_users_service.dart';
-import '../models/user.dart';
+import '../../../../shared/models/user.dart';
 
 part 'users_event.dart';
 part 'users_state.dart';
