@@ -10,7 +10,7 @@ abstract class BookDetailState extends Equatable {
 class BookDetailInitial extends BookDetailState {}
 
 class BookDetailSuccess extends BookDetailState {
-  final BookDetailModel bookDetail;
+  final List<BookDetailModel> bookDetail;
   const BookDetailSuccess({
     required this.bookDetail
   });

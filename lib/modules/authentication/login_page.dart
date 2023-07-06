@@ -1,15 +1,13 @@
-import 'package:library_app/app/bloc/authentication/authentication_bloc.dart';
-import 'package:library_app/shared/constants/app_colors.dart';
-import 'package:library_app/shared/helpers/app_env.dart';
-import 'package:library_app/shared/helpers/app_exit.dart';
-
-import 'package:library_app/shared/helpers/modular_navigator.dart';
-import 'package:library_app/shared/helpers/screen_size.dart';
-import 'package:library_app/shared/widgets/buttons/custom_elevated_button.dart';
-import 'package:library_app/shared/widgets/indicators/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import './/app/bloc/authentication/authentication_bloc.dart';
+import './/shared/constants/app_colors.dart';
+import './/shared/helpers/app_exit.dart';
+import './/shared/helpers/modular_navigator.dart';
+import './/shared/helpers/screen_size.dart';
+import './/shared/widgets/buttons/custom_elevated_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -149,8 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                                               borderRadius:
                                                   BorderRadius.circular(4.0),
                                               borderSide: BorderSide(
-                                                  color:
-                                                      AppColors.inputColor),
+                                                  color: AppColors.inputColor),
                                             ),
                                           ),
                                         ),
@@ -182,8 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                                               borderRadius:
                                                   BorderRadius.circular(4.0),
                                               borderSide: BorderSide(
-                                                  color:
-                                                      AppColors.inputColor),
+                                                  color: AppColors.inputColor),
                                             ),
                                           ),
                                         ),

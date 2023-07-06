@@ -11,9 +11,3 @@ class UserDetailFetch extends UserDetailEvent {
   final String userId;
   const UserDetailFetch(this.userId);
 }
-
-// class UserDetailFetchByUser extends UserDetailEvent {
-//   final String ownerId;
-//   UserDetailFetchByUser(
-//       {required this.ownerId});
-// }

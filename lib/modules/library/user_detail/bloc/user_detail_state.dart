@@ -11,8 +11,7 @@ class UserDetailInitial extends UserDetailState {}
 
 class UserDetailSuccess extends UserDetailState {
   final UserModel userDetail;
-  const UserDetailSuccess(
-      {required this.userDetail});
+  const UserDetailSuccess({required this.userDetail});
 }
 
 class UserDetailLoading extends UserDetailState {}

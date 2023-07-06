@@ -11,8 +11,7 @@ class BooksInitial extends BooksState {}
 
 class BooksSuccess extends BooksState {
   final List<BookModel> books;
-  const BooksSuccess(
-      {required this.books});
+  const BooksSuccess({required this.books});
 }
 
 class BooksLoading extends BooksState {}

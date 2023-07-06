@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:library_app/shared/helpers/app_env.dart';
-import 'package:library_app/shared/helpers/local_storage.dart';
+import '../shared/helpers/app_env.dart';
+import '../shared/helpers/local_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:asuka/asuka.dart' as asuka;
@@ -20,10 +20,10 @@ class AppWidget extends StatelessWidget {
       routerDelegate: Modular.routerDelegate,
       debugShowCheckedModeBanner: false,
       title: 'Library App',
+      // ignore: deprecated_member_use
       builder: asuka.builder,
       theme: ThemeData(
-        scrollbarTheme: const ScrollbarThemeData(
-          isAlwaysShown: kIsWeb
+        scrollbarTheme: const ScrollbarThemeData(isAlwaysShown: kIsWeb
             // thumbVisibility: MaterialStateProperty.all<bool>(true),
             ),
         primarySwatch: Colors.blueGrey,

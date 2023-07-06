@@ -1,6 +1,6 @@
-import 'package:library_app/modules/library/books/models/book.dart';
-import 'package:library_app/modules/library/books/services/i_books_service.dart';
 import 'package:library_app/shared/helpers/networking.dart';
+import '../models/book.dart';
+import '../services/i_books_service.dart';
 
 class BooksService implements IBooksService {
   INetwork network;
@@ -10,8 +10,7 @@ class BooksService implements IBooksService {
   @override
   Future<List<BookModel>> fetchBooks() async {
     try {
-      var response = await network.get(
-          '/books');
+      var response = await network.get('/books');
       var model = (response.data as List)
           .map((e) => BookModel.fromResponse(e))
           .toList();

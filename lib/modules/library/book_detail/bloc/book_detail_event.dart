@@ -7,4 +7,7 @@ abstract class BookDetailEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class BookDetailFetchEvent extends BookDetailEvent {}
+class BookDetailFetchEvent extends BookDetailEvent {
+  final String userId;
+  const BookDetailFetchEvent(this.userId);
+}

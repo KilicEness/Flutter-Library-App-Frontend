@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:library_app/shared/helpers/app_env.dart';
-import 'package:library_app/shared/helpers/modular_navigator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import './app_env.dart';
+import './modular_navigator.dart';
 
 class HttpResponse {
   dynamic data;

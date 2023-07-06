@@ -1,8 +1,9 @@
-import 'package:library_app/app/bloc/authentication/authentication_bloc.dart';
-import 'package:library_app/shared/helpers/modular_navigator.dart';
-import 'package:library_app/shared/widgets/indicators/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import './/app/bloc/authentication/authentication_bloc.dart';
+import './/shared/helpers/modular_navigator.dart';
+import './/shared/widgets/indicators/custom_loading_indicator.dart';
 
 class LogOutPage extends StatefulWidget {
   const LogOutPage({Key? key}) : super(key: key);

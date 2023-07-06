@@ -1,14 +1,27 @@
 //network
-
-import 'package:library_app/modules/library/book_detail/models/book_detail.dart';
+import '../models/book_detail.dart';
+import './/shared/helpers/networking.dart';
 
 import './i_book_detail_service.dart';
 
 class BookDetailService implements IBookDetailService {
+  INetwork network;
+
+  BookDetailService({required this.network});
+
   @override
-  Future<BookDetailModel> fetchBookDetail() async{
+  Future<List<BookDetailModel>> fetchBookDetail(
+      {required String userId}) async {
     //API
-    await Future.delayed(const Duration(seconds: 1));
-    return BookDetailModel(title: "Hamdi", description: "Colins");
+    try {
+      var response = await network.get('/books/$userId/books');
+      var model = (response.data as List)
+          .map((e) => BookDetailModel.fromResponse(e))
+          .toList();
+
+      return model;
+    } catch (e) {
+      throw e.toString();
+    }
   }
 }

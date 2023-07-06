@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:library_app/shared/helpers/modular_navigator.dart';
+import './/shared/helpers/modular_navigator.dart';
 
 import '../../services/authentication/i_authentication_service.dart';
 import '../../models/user_model.dart';

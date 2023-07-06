@@ -15,7 +15,8 @@ class BookDetailBloc extends Bloc<BookDetailEvent, BookDetailState> {
       try {
         emit(BookDetailLoading());
 
-        var result = await iBookDetailService.fetchBookDetail();
+        var result =
+            await iBookDetailService.fetchBookDetail(userId: event.userId);
         emit(BookDetailSuccess(bookDetail: result));
       } catch (e) {
         emit(BookDetailFail(errorMessage: e.toString()));

@@ -1,7 +1,7 @@
-import 'package:library_app/app/bloc/authentication/authentication_bloc.dart';
-import 'package:library_app/shared/widgets/indicators/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import '/app/bloc/authentication/authentication_bloc.dart';
+import '/shared/widgets/indicators/custom_loading_indicator.dart';
 
 class CheckPage extends StatelessWidget {
   // final AuthenticationBloc _authenticationBloc =
@@ -12,7 +12,7 @@ class CheckPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Modular.get<AuthenticationBloc>()
-        .add(AuthenticationStatusCheck(isRedirect: true));
+        .add(const AuthenticationStatusCheck(isRedirect: true));
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,

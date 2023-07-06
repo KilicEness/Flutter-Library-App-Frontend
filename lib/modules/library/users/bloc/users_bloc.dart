@@ -8,13 +8,11 @@ part 'users_state.dart';
 
 class UsersBloc extends Bloc<UsersEvent, UsersState> {
   IUsersService iUsersService;
-  UsersBloc({required this.iUsersService})
-      : super(UsersInitial()) {
+  UsersBloc({required this.iUsersService}) : super(UsersInitial()) {
     on<UsersFetch>(_fetchUsers);
   }
 
-  void _fetchUsers(
-      UsersFetch event, Emitter<UsersState> emit) async {
+  void _fetchUsers(UsersFetch event, Emitter<UsersState> emit) async {
     try {
       emit(UsersLoading());
       var response = await iUsersService.fetchUsers();

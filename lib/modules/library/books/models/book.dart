@@ -1,5 +1,3 @@
-import 'package:library_app/shared/models/user.dart';
-
 class BookModel {
   late String name;
   late String author;
@@ -31,12 +29,4 @@ class BookModel {
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
   }
-
-  // Map<String, dynamic> toJson() {
-  //   final Map<String, dynamic> data = <String, dynamic>{};
-  //   data['userId'] = userId;
-  //   data['email'] = email;
-
-  //   return data;
-  // }
 }

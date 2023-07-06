@@ -1,5 +1,4 @@
 import 'package:library_app/app/bloc/app_navigation/app_navigation_bloc.dart';
-import 'package:library_app/shared/helpers/modular_navigator.dart';
 import 'package:library_app/shared/helpers/screen_size.dart';
 
 import 'package:flutter/material.dart';

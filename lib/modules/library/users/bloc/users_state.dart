@@ -11,8 +11,7 @@ class UsersInitial extends UsersState {}
 
 class UsersSuccess extends UsersState {
   final List<UserModel> users;
-  const UsersSuccess(
-      {required this.users});
+  const UsersSuccess({required this.users});
 }
 
 class UsersLoading extends UsersState {}

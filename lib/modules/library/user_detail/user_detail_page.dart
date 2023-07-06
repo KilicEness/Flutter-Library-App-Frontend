@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:library_app/modules/library/user_detail/bloc/user_detail_bloc.dart';
-import 'package:library_app/modules/library/user_detail/widgets/user_detail_tile.dart';
-import 'package:library_app/shared/models/user.dart';
-import 'package:library_app/shared/widgets/layouts/library_scaffold.dart';
+
+import '../user_detail/bloc/user_detail_bloc.dart';
+import '../user_detail/widgets/user_detail_tile.dart';
+import './/shared/widgets/layouts/library_scaffold.dart';
 
 class UserDetailPage extends StatelessWidget {
   final String userId;
   final UserDetailBloc _userDetailBloc = Modular.get<UserDetailBloc>();
- 
+
   UserDetailPage({Key? key, required this.userId}) : super(key: key) {
     _userDetailBloc.add(UserDetailFetch(userId));
   }
@@ -28,17 +28,16 @@ class UserDetailPage extends StatelessWidget {
             } else if (state is UserDetailFail) {
               return Center(child: Text(state.errorMessage));
             } else if (state is UserDetailSuccess) {
-               return ListView.builder(
+              return ListView.builder(
                 itemCount: 1,
-                 itemBuilder: (context, index) {
-                   final user = state.userDetail;
-                   return Padding(
-                     padding: const EdgeInsets.only(bottom: 16.0),
-                     child: UserDetailTile(user: user),
-                   );
-                 },
-               );
-              // return Text(state.userDetail.name);
+                itemBuilder: (context, index) {
+                  final user = state.userDetail;
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 16.0),
+                    child: UserDetailTile(user: user),
+                  );
+                },
+              );
             } else {
               return const SizedBox.shrink();
             }

@@ -14,7 +14,8 @@ class UserDetailBloc extends Bloc<UserDetailEvent, UserDetailState> {
       try {
         emit(UserDetailLoading());
 
-        var result = await iUserDetailService.fetchUserDetail(userId: event.userId);
+        var result =
+            await iUserDetailService.fetchUserDetail(userId: event.userId);
         emit(UserDetailSuccess(userDetail: result));
       } catch (e) {
         emit(UserDetailFail(errorMessage: e.toString()));

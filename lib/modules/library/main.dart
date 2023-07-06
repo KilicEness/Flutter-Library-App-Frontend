@@ -1,14 +1,22 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:library_app/modules/library/books/bloc/books_bloc.dart';
-import 'package:library_app/modules/library/books/books_page.dart';
-import 'package:library_app/modules/library/books/services/books_service.dart';
-import 'package:library_app/modules/library/user_detail/bloc/user_detail_bloc.dart';
-import 'package:library_app/modules/library/user_detail/services/user_detail_service.dart';
-import 'package:library_app/modules/library/users/bloc/users_bloc.dart';
-import 'package:library_app/modules/library/users/users_page.dart';
-import 'package:library_app/modules/library/users/services/users_service.dart';
-import 'package:library_app/shared/helpers/networking.dart';
-import 'package:library_app/modules/library/user_detail/user_detail_page.dart';
+
+import './book_detail/bloc/book_detail_bloc.dart';
+import './book_detail/book_detail_page.dart';
+import './book_detail/services/book_detail_service.dart';
+
+import './books/bloc/books_bloc.dart';
+import './books/books_page.dart';
+import './books/services/books_service.dart';
+
+import './user_detail/bloc/user_detail_bloc.dart';
+import './user_detail/services/user_detail_service.dart';
+import './user_detail/user_detail_page.dart';
+
+import './users/bloc/users_bloc.dart';
+import './users/users_page.dart';
+import './users/services/users_service.dart';
+
+import '/shared/helpers/networking.dart';
 
 //Dashboard
 import './dashboard/dashboard_page.dart';
@@ -27,8 +35,13 @@ class Library extends Module {
             isLazy: true,
             isSingleton: true),
         Bind(
-            (i) =>
-                UserDetailBloc(iUserDetailService: UserDetailService(network: DioNetwork())),
+            (i) => UserDetailBloc(
+                iUserDetailService: UserDetailService(network: DioNetwork())),
+            isLazy: true,
+            isSingleton: true),
+        Bind(
+            (i) => BookDetailBloc(
+                iBookDetailService: BookDetailService(network: DioNetwork())),
             isLazy: true,
             isSingleton: true),
       ];
@@ -41,5 +54,7 @@ class Library extends Module {
         ChildRoute('/users', child: (_, args) => UsersPage()),
         ChildRoute('/users/:userId',
             child: (_, args) => UserDetailPage(userId: args.params['userId'])),
+        ChildRoute('/books/:userId/books',
+            child: (_, args) => BookDetailPage(userId: args.params['userId'])),
       ];
 }

@@ -1,11 +1,12 @@
-import 'package:library_app/shared/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 //Shared
-import 'package:library_app/shared/constants/nav_links.dart';
-import 'package:library_app/shared/helpers/modular_navigator.dart';
-import 'package:library_app/shared/widgets/layouts/card_container.dart';
+import './/shared/constants/nav_links.dart';
+import './/shared/helpers/modular_navigator.dart';
+import './/shared/widgets/layouts/card_container.dart';
+import './/shared/constants/app_colors.dart';
 
+// ignore: must_be_immutable
 class DashboardMenuButton extends StatelessWidget {
   NavItem navItem;
 

@@ -1,5 +1,5 @@
-import 'package:library_app/shared/helpers/local_storage.dart';
-import 'package:library_app/shared/helpers/networking.dart';
+import './/shared/helpers/local_storage.dart';
+import './/shared/helpers/networking.dart';
 
 import './i_authentication_service.dart';
 import '../../models/user_model.dart';
@@ -37,7 +37,7 @@ class AuthenticationService implements IAuthenticationService {
 
       return UserModel.fromResponse(response.data);
     } catch (e) {
-      throw e;
+      throw e.toString();
     }
   }
 

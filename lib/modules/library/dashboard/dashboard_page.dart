@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 //Shared
-import 'package:library_app/shared/constants/nav_links.dart';
-import 'package:library_app/shared/helpers/screen_size.dart';
-import 'package:library_app/shared/widgets/layouts/library_scaffold.dart';
-import 'package:library_app/shared/helpers/app_exit.dart';
-import 'package:library_app/shared/widgets/layouts/card_container.dart';
+import './/shared/constants/nav_links.dart';
+import './/shared/helpers/screen_size.dart';
+import './/shared/widgets/layouts/library_scaffold.dart';
+import './/shared/helpers/app_exit.dart';
+import './/shared/widgets/layouts/card_container.dart';
 
 import './widgets/dashboard_menu_button.dart';
 

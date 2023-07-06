@@ -8,11 +8,5 @@ abstract class BooksEvent extends Equatable {
 }
 
 class BooksFetch extends BooksEvent {
-  BooksFetch();
+  const BooksFetch();
 }
-
-// class BooksFetchByUser extends BooksEvent {
-//   final String ownerId;
-//   BooksFetchByUser(
-//       {required this.ownerId});
-// }

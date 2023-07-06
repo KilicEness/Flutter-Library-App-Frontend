@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:library_app/modules/library/books/models/book.dart';
-import 'package:library_app/modules/library/books/bloc/books_bloc.dart';
-import 'package:library_app/modules/library/books/widgets/book_tile.dart';
-import 'package:library_app/shared/widgets/layouts/library_scaffold.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import './bloc/books_bloc.dart';
+import 'widgets/books_tile.dart';
+import './/shared/widgets/layouts/library_scaffold.dart';
+
 class BooksPage extends StatelessWidget {
-  final BooksBloc _booksBloc = Modular.get<BooksBloc>()..add(BooksFetch());
+  final BooksBloc _booksBloc = Modular.get<BooksBloc>()..add(const BooksFetch());
 
   BooksPage({Key? key}) : super(key: key);
 
@@ -25,7 +25,8 @@ class BooksPage extends StatelessWidget {
             } else if (state is BooksFailure) {
               return Text(state.message);
             } else if (state is BooksSuccess) {
-              state.books.sort((a, b) => a.name.compareTo(b.name)); // Kitapları isimlerine göre sırala
+              state.books.sort((a, b) =>
+                  a.name.compareTo(b.name)); // Kitapları isimlerine göre sırala
               return ListView.builder(
                 itemCount: state.books.length,
                 itemBuilder: (context, index) {

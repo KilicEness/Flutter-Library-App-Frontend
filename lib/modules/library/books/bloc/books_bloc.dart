@@ -8,13 +8,11 @@ part 'books_state.dart';
 
 class BooksBloc extends Bloc<BooksEvent, BooksState> {
   IBooksService iBooksService;
-  BooksBloc({required this.iBooksService})
-      : super(BooksInitial()) {
+  BooksBloc({required this.iBooksService}) : super(BooksInitial()) {
     on<BooksFetch>(_fetchBooks);
   }
 
-  void _fetchBooks(
-      BooksFetch event, Emitter<BooksState> emit) async {
+  void _fetchBooks(BooksFetch event, Emitter<BooksState> emit) async {
     try {
       emit(BooksLoading());
       var response = await iBooksService.fetchBooks();

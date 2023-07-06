@@ -1,6 +1,7 @@
-import 'package:library_app/shared/models/user.dart';
-import 'package:library_app/modules/library/users/services/i_users_service.dart';
-import 'package:library_app/shared/helpers/networking.dart';
+import './/shared/models/user.dart';
+import './/shared/helpers/networking.dart';
+
+import './i_users_service.dart';
 
 class UsersService implements IUsersService {
   INetwork network;

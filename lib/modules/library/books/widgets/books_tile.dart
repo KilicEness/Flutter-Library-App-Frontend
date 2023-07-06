@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:library_app/modules/library/books/models/book.dart';
-import 'package:library_app/modules/library/user_detail/user_detail_page.dart';
-import 'package:library_app/shared/helpers/modular_navigator.dart';
+import '../models/book.dart';
+import './/shared/helpers/modular_navigator.dart';
 
 class BookTile extends StatelessWidget {
   final BookModel book;
@@ -81,7 +80,7 @@ class BookTile extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () {
-                      ModularNavigator.toPush("/library/users/${book.ownerId}");
+                    ModularNavigator.toPush("/library/users/${book.ownerId}");
                   },
                   icon: const Icon(Icons.account_circle),
                 ),

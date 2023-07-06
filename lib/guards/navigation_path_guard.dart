@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:library_app/app/bloc/app_navigation/app_navigation_bloc.dart';
+import './/app/bloc/app_navigation/app_navigation_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class NavigationPathGuard extends RouteGuard {

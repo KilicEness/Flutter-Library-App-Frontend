@@ -1,4 +1,4 @@
-import 'package:library_app/shared/widgets/modal/alert_modal.dart';
+import '../widgets/modal/alert_modal.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;

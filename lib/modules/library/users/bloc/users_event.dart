@@ -8,11 +8,5 @@ abstract class UsersEvent extends Equatable {
 }
 
 class UsersFetch extends UsersEvent {
-  UsersFetch();
+  const UsersFetch();
 }
-
-// class UsersFetchByUser extends UsersEvent {
-//   final String ownerId;
-//   UsersFetchByUser(
-//       {required this.ownerId});
-// }
