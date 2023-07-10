@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import './app_env.dart';
 import './modular_navigator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HttpResponse {
   dynamic data;
@@ -67,7 +66,7 @@ class DioNetwork implements INetwork {
     instance.interceptors.add(InterceptorsWrapper(
       onRequest: (e, handler) {
         e.headers.addAll({
-          "Authorization": "Bearer ${sharedPreferences.getString("token")}"
+          "Authorization": "Bearer ${sharedPreferences.getString("token") ?? "Token Not Found!"}"
         });
         return handler.next(e);
       },

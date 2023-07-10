@@ -63,7 +63,7 @@ class UserTile extends StatelessWidget {
             const SizedBox(width: 16.0),
             IconButton(
               onPressed: () {
-                ModularNavigator.toPush('/library/books/${user.id}/books');
+                ModularNavigator.toPush('/library/books/${user.id}');
               },
               icon: const Icon(Icons.book_rounded),
             ),

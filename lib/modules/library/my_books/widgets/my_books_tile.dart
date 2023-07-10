@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../../../shared/models/book_detail.dart';
+import './/shared/models/book_detail.dart';
 
-class BookDetailTile extends StatelessWidget {
+class MyBooksTile extends StatelessWidget {
   final BookDetailModel book;
 
-  const BookDetailTile({Key? key, required this.book}) : super(key: key);
+  const MyBooksTile({Key? key, required this.book}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

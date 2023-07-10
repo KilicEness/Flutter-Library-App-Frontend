@@ -80,7 +80,7 @@ class BookTile extends StatelessWidget {
               children: [
                 IconButton(
                   onPressed: () {
-                    ModularNavigator.toPush("/library/users/${book.ownerId}");
+                    ModularNavigator.toPush("/library/user/${book.ownerId}");
                   },
                   icon: const Icon(Icons.account_circle),
                 ),

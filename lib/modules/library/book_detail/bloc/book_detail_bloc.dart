@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../services/i_book_detail_service.dart';
-import '../models/book_detail.dart';
+import '../../../../shared/models/book_detail.dart';
 
 part 'book_detail_event.dart';
 part 'book_detail_state.dart';

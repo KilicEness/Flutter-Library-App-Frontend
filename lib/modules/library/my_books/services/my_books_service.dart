@@ -1,20 +1,20 @@
 //network
-import '../../../../shared/models/book_detail.dart';
+import 'package:library_app/shared/models/book_detail.dart';
 import './/shared/helpers/networking.dart';
 
-import './i_book_detail_service.dart';
+import './i_my_books_service.dart';
 
-class BookDetailService implements IBookDetailService {
+class MyBooksService implements IMyBooksService {
   INetwork network;
 
-  BookDetailService({required this.network});
+  MyBooksService({required this.network});
 
   @override
-  Future<List<BookDetailModel>> fetchBookDetail(
+  Future<List<BookDetailModel>> fetchMyBooks(
       {required String userId}) async {
     //API
     try {
-      var response = await network.get('/books/$userId/books');
+      var response = await network.get('/books/$userId/myBooks');
       var model = (response.data as List)
           .map((e) => BookDetailModel.fromResponse(e))
           .toList();

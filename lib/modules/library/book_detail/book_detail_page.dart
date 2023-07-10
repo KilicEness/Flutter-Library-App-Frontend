@@ -7,11 +7,11 @@ import '../book_detail/widgets/book_detail_tile.dart';
 import './/shared/widgets/layouts/library_scaffold.dart';
 
 class BookDetailPage extends StatelessWidget {
-  final String userId;
+  final String bookId;
   final BookDetailBloc _bookDetailBloc = Modular.get<BookDetailBloc>();
 
-  BookDetailPage({Key? key, required this.userId}) : super(key: key) {
-    _bookDetailBloc.add(BookDetailFetchEvent(userId));
+  BookDetailPage({Key? key, required this.bookId}) : super(key: key) {
+    _bookDetailBloc.add(BookDetailFetchEvent(bookId));
   }
 
   @override

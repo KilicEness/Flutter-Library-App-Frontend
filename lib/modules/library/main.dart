@@ -1,4 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:library_app/modules/library/add_book/add_book_page.dart';
+import 'package:library_app/modules/library/add_book/bloc/add_book_bloc.dart';
+import 'package:library_app/modules/library/add_book/services/add_book_service.dart';
+import 'package:library_app/shared/helpers/local_storage.dart';
 
 import './book_detail/bloc/book_detail_bloc.dart';
 import './book_detail/book_detail_page.dart';
@@ -15,6 +19,10 @@ import './user_detail/user_detail_page.dart';
 import './users/bloc/users_bloc.dart';
 import './users/users_page.dart';
 import './users/services/users_service.dart';
+
+import './my_books/bloc/my_books_bloc.dart';
+import './my_books/services/my_books_service.dart';
+import './my_books/my_books_page.dart';
 
 import '/shared/helpers/networking.dart';
 
@@ -44,6 +52,16 @@ class Library extends Module {
                 iBookDetailService: BookDetailService(network: DioNetwork())),
             isLazy: true,
             isSingleton: true),
+        Bind(
+            (i) => MyBooksBloc(
+                iMyBooksService: MyBooksService(network: DioNetwork())),
+            isLazy: true,
+            isSingleton: true),
+        Bind(
+            (i) => AddBookBloc(
+                iAddBookService: AddBookService(network: DioNetwork())),
+            isLazy: true,
+            isSingleton: true),
       ];
 
   @override
@@ -52,9 +70,12 @@ class Library extends Module {
         ChildRoute('/dashboard', child: (_, args) => const DashboardPage()),
         ChildRoute('/books', child: (_, args) => BooksPage()),
         ChildRoute('/users', child: (_, args) => UsersPage()),
-        ChildRoute('/users/:userId',
+        ChildRoute('/user/:userId',
             child: (_, args) => UserDetailPage(userId: args.params['userId'])),
-        ChildRoute('/books/:userId/books',
-            child: (_, args) => BookDetailPage(userId: args.params['userId'])),
+        ChildRoute('/books/:bookId',
+            child: (_, args) => BookDetailPage(bookId: args.params['bookId'])),
+        ChildRoute('/books/myBooks',
+            child: (_, args) => MyBooksPage()),
+        ChildRoute('/books/create', child: (_, args) => AddBookPage()),
       ];
 }
