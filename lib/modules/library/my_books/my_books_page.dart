@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:library_app/shared/helpers/local_storage.dart';
 import 'package:library_app/shared/helpers/modular_navigator.dart';
 
 import './widgets/my_books_tile.dart';
@@ -14,7 +13,7 @@ class MyBooksPage extends StatelessWidget {
   final MyBooksBloc _myBooksBloc = Modular.get<MyBooksBloc>();
 
   MyBooksPage({Key? key}) : super(key: key) {
-    _myBooksBloc.add(MyBooksFetchEvent());
+    _myBooksBloc.add(const MyBooksFetchEvent());
   }
 
   @override

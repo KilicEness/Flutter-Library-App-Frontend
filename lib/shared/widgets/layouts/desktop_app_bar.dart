@@ -43,7 +43,7 @@ class _DesktopAppBarState extends State<DesktopAppBar> {
   Widget build(BuildContext context) {
     ScreenSize _screen = ScreenSize(context);
     return AppBar(
-      backgroundColor: AppColors.headerColor,
+      backgroundColor: Colors.brown.shade800,
       elevation: 0.0,
       titleSpacing: 20,
       centerTitle: false,
@@ -55,7 +55,7 @@ class _DesktopAppBarState extends State<DesktopAppBar> {
         children: [
           SizedBox(
             width: 200,
-            child: SelectableText('Library App',
+            child: SelectableText('Kilic Library',
                 style: TextStyle(
                     color: AppColors.headerIconColor,
                     fontWeight: FontWeight.w500,

@@ -18,7 +18,6 @@ class MyBooksBloc extends Bloc<MyBooksEvent, MyBooksState> {
 
         ILocalStorage localStorage = SPStorage();
         var userId = await localStorage.getData('userId');
-        print(userId.toString());
         var result =
             await iMyBooksService.fetchMyBooks(userId: userId);
         emit(MyBooksSuccess(myBooks: result));

@@ -39,4 +39,9 @@ List<NavItem> libraryNavLinks = [
       label: 'My Books',
       path: '/library/books/myBooks',
       pathGroup: '/library/books/myBooks'),
+  NavItem(
+      icon: Icons.account_balance,
+      label: 'My Profile',
+      path: '/library/myProfile',
+      pathGroup: '/library/myProfile'),
 ];

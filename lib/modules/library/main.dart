@@ -1,8 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
+
 import 'package:library_app/modules/library/add_book/add_book_page.dart';
 import 'package:library_app/modules/library/add_book/bloc/add_book_bloc.dart';
 import 'package:library_app/modules/library/add_book/services/add_book_service.dart';
-import 'package:library_app/shared/helpers/local_storage.dart';
 
 import './book_detail/bloc/book_detail_bloc.dart';
 import './book_detail/book_detail_page.dart';
@@ -24,10 +24,15 @@ import './my_books/bloc/my_books_bloc.dart';
 import './my_books/services/my_books_service.dart';
 import './my_books/my_books_page.dart';
 
+import 'my_profile/bloc/my_profile_bloc.dart';
+import 'my_profile/my_profile_page.dart';
+import 'my_profile/services/my_profile_services.dart';
+
 import '/shared/helpers/networking.dart';
 
 //Dashboard
 import './dashboard/dashboard_page.dart';
+
 
 class Library extends Module {
   @override
@@ -62,6 +67,11 @@ class Library extends Module {
                 iAddBookService: AddBookService(network: DioNetwork())),
             isLazy: true,
             isSingleton: true),
+            Bind(
+            (i) => MyProfileBloc(
+                iMyProfileService: MyProfileService(network: DioNetwork())),
+            isLazy: true,
+            isSingleton: true),
       ];
 
   @override
@@ -77,5 +87,7 @@ class Library extends Module {
         ChildRoute('/books/myBooks',
             child: (_, args) => MyBooksPage()),
         ChildRoute('/books/create', child: (_, args) => AddBookPage()),
+        ChildRoute('/myProfile',
+            child: (_, args) => MyProfilePage()),
       ];
 }
