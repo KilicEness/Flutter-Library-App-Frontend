@@ -12,6 +12,9 @@ class MyProfileTile extends StatelessWidget {
     final createdAtDate = DateTime.parse(user.createdAt);
     final formattedDate = DateFormat.yMMMMd().format(createdAtDate);
 
+    final birthDayDate = DateTime.parse(user.birthDay!);
+    final formattedBirthDate = DateFormat.yMMMMd().format(birthDayDate);
+
     return Container(
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
@@ -56,6 +59,16 @@ class MyProfileTile extends StatelessWidget {
               ),
             ),
             subtitle: Text(user.email),
+          ),
+          ListTile(
+            leading: const Icon(Icons.date_range),
+            title: const Text(
+              'Birth Day',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: Text(formattedBirthDate),
           ),
           ListTile(
             leading: const Icon(Icons.calendar_today),

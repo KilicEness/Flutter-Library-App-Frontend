@@ -1,8 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:library_app/modules/library/add_book/add_book_page.dart';
-import 'package:library_app/modules/library/add_book/bloc/add_book_bloc.dart';
-import 'package:library_app/modules/library/add_book/services/add_book_service.dart';
+import './add_book/add_book_page.dart';
+import './add_book/bloc/add_book_bloc.dart';
+import './add_book/services/add_book_service.dart';
 
 import './book_detail/bloc/book_detail_bloc.dart';
 import './book_detail/book_detail_page.dart';
@@ -24,15 +24,22 @@ import './my_books/bloc/my_books_bloc.dart';
 import './my_books/services/my_books_service.dart';
 import './my_books/my_books_page.dart';
 
-import 'my_profile/bloc/my_profile_bloc.dart';
-import 'my_profile/my_profile_page.dart';
-import 'my_profile/services/my_profile_services.dart';
+import './my_profile/bloc/my_profile_bloc.dart';
+import './my_profile/my_profile_page.dart';
+import './my_profile/services/my_profile_services.dart';
+
+import './edit_profile/bloc/edit_profile_bloc.dart';
+import './edit_profile/services/edit_profile_service.dart';
+import './edit_profile/edit_profile_page.dart';
+
+import 'edit_book/bloc/edit_book_bloc.dart';
+import 'edit_book/edit_book_page.dart';
+import 'edit_book/services/edit_book_service.dart';
 
 import '/shared/helpers/networking.dart';
 
 //Dashboard
 import './dashboard/dashboard_page.dart';
-
 
 class Library extends Module {
   @override
@@ -67,9 +74,19 @@ class Library extends Module {
                 iAddBookService: AddBookService(network: DioNetwork())),
             isLazy: true,
             isSingleton: true),
-            Bind(
+        Bind(
             (i) => MyProfileBloc(
                 iMyProfileService: MyProfileService(network: DioNetwork())),
+            isLazy: true,
+            isSingleton: true),
+        Bind(
+            (i) => EditProfileBloc(
+                iEditProfileService: EditProfileService(network: DioNetwork())),
+            isLazy: true,
+            isSingleton: true),
+        Bind(
+            (i) => EditBookBloc(
+                iEditBookService: EditBookService(network: DioNetwork())),
             isLazy: true,
             isSingleton: true),
       ];
@@ -84,10 +101,10 @@ class Library extends Module {
             child: (_, args) => UserDetailPage(userId: args.params['userId'])),
         ChildRoute('/books/:bookId',
             child: (_, args) => BookDetailPage(bookId: args.params['bookId'])),
-        ChildRoute('/books/myBooks',
-            child: (_, args) => MyBooksPage()),
+        ChildRoute('/books/myBooks', child: (_, args) => MyBooksPage()),
         ChildRoute('/books/create', child: (_, args) => AddBookPage()),
-        ChildRoute('/myProfile',
-            child: (_, args) => MyProfilePage()),
+        ChildRoute('/myProfile', child: (_, args) => MyProfilePage()),
+        ChildRoute('/editProfile', child: (_, args) => EditProfilePage()),
+        ChildRoute('/editBook', child: (_, args) => EditBookPage()),
       ];
 }

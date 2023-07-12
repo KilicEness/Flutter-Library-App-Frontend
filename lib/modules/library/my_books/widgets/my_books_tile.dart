@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:library_app/shared/helpers/modular_navigator.dart';
 import './/shared/models/book_detail.dart';
 
 class MyBooksTile extends StatelessWidget {
@@ -65,6 +66,11 @@ class MyBooksTile extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8.0),
+            IconButton(
+                onPressed: () {
+                  ModularNavigator.toPush('/library/editBook');
+                },
+                icon: const Icon(Icons.edit),),
           ],
         ),
       ),

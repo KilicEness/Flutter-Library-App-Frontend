@@ -117,7 +117,7 @@ class _LibraryScaffoldState extends State<LibraryScaffold> {
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           margin: const EdgeInsets.only(top: 12, bottom: 12),
                           decoration: BoxDecoration(
-                              color: AppColors.headerBadgeColor,
+                              color: AppColors.successColor,
                               borderRadius: BorderRadius.circular(10)),
                           child: Row(
                             children: [
