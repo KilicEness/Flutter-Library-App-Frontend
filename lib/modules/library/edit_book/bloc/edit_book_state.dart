@@ -12,11 +12,11 @@ class EditBookInitial extends EditBookState {}
 class EditBookLoading extends EditBookState {}
 
 class EditBookSuccess extends EditBookState {
-  final BookDetailModel book;
-  EditBookSuccess({required this.book});
+  final BookModel book;
+  const EditBookSuccess({required this.book});
 }
 
 class EditBookFailure extends EditBookState {
   final String message;
-  EditBookFailure({required this.message});
+  const EditBookFailure({required this.message});
 }

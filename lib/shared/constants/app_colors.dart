@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static Color bgColor = const Color.fromRGBO(245, 247, 250, 1);
-  static Color sideColor = const Color.fromRGBO(255, 255, 255, 1);
+  static Color sideColor = const Color.fromRGBO(35, 30, 30, 1);
   static Color headerColor = const Color.fromRGBO(0, 0, 0, 1);
   static Color headerIconColor = const Color.fromRGBO(255, 255, 255, 1);
   static Color headerBadgeColor = const Color.fromRGBO(240, 80, 80, 1);
   static Color sideActiveColor = const Color.fromRGBO(35, 183, 229, 1);
-  static Color sidePassiveColor = const Color.fromRGBO(81, 82, 83, 1);
+  static Color sidePassiveColor = const Color.fromRGBO(255, 255, 255, 1);
   static Color mainCardBgColor = const Color.fromRGBO(8, 161, 95, 1);
   static Color mainCardIconColor = const Color.fromRGBO(255, 255, 255, 1);
   static Color sideActiveBgColor = const Color.fromRGBO(252, 252, 252, 1);

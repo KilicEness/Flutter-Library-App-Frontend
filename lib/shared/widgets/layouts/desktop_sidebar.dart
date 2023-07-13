@@ -39,9 +39,11 @@ class _DesktopSidebarState extends State<DesktopSidebar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 5),
       width: 217,
       height: MediaQuery.of(context).size.height,
       decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(7.0)),
         color: AppColors.sideColor,
       ),
       child: BlocBuilder<AppNavigationBloc, AppNavigationState>(
@@ -82,8 +84,10 @@ class SidebarItem extends StatelessWidget {
           ? BoxDecoration(
               color: AppColors.sideActiveBgColor,
               border: Border(
-                  left: BorderSide(
-                      color: AppColors.sideLeftBorderColor, width: 2)))
+                left:
+                    BorderSide(color: AppColors.sideLeftBorderColor, width: 2),
+              ),
+            )
           : null,
       //margin: const EdgeInsets.only(top: 3, bottom: 3),
       width: 215,

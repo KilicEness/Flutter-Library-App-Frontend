@@ -14,9 +14,9 @@ class MobileBottomBar extends StatelessWidget {
     switch (path) {
       case '/library/dashboard':
         return 0;
-      case '/library/itemSearch':
+      case '/library/myBooks':
         return 1;
-      case '/library/settings':
+      case '/library/myProfile':
         return 2;
       default:
         return 0;
@@ -37,9 +37,9 @@ class MobileBottomBar extends StatelessWidget {
                 if (value == 0)
                   {ModularNavigator.toReplace('/library/dashboard')}
                 else if (value == 1)
-                  {ModularNavigator.toReplace('/library/itemSearch')}
+                  {ModularNavigator.toReplace('/library/myBooks')}
                 else if (value == 2)
-                  {ModularNavigator.toReplace('/library/settings')}
+                  {ModularNavigator.toReplace('/library/myProfile')}
               },
               backgroundColor: AppColors.sideColor,
               items: const [
@@ -47,17 +47,17 @@ class MobileBottomBar extends StatelessWidget {
                   icon: Icon(
                     Icons.dashboard,
                   ),
-                  label: 'Menü',
+                  label: 'Menu',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
-                    Icons.search,
+                    Icons.library_books_sharp,
                   ),
-                  label: 'Arama',
+                  label: 'My Books',
                 ),
                 BottomNavigationBarItem(
                     icon: Icon(
-                      Icons.settings,
+                      Icons.person,
                     ),
                     label: 'Ayarlar')
               ],

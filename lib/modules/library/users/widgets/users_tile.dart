@@ -33,7 +33,7 @@ class UserTile extends StatelessWidget {
                   Text(
                     user.name,
                     style: const TextStyle(
-                      fontSize: 16.0,
+                      fontSize: 14.0, 
                     ),
                   ),
                 ],
@@ -54,7 +54,7 @@ class UserTile extends StatelessWidget {
                   Text(
                     user.email,
                     style: const TextStyle(
-                      fontSize: 16.0,
+                      fontSize: 14.0,
                     ),
                   ),
                 ],

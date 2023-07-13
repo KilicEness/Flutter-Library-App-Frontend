@@ -27,19 +27,19 @@ class _MobileAppBarState extends State<MobileAppBar> {
     switch (_appNavigationBloc.state.activePath.split("/")[1]) {
       case "library":
         setState(() {
-          moduleName = "Mağaza";
+          moduleName = "App";
           activeModule = "library";
         });
         break;
-      case "order":
+        case "myProfile":
         setState(() {
-          moduleName = "Sipariş";
-          activeModule = "order";
+          moduleName = "App";
+          activeModule = "myProfile";
         });
         break;
       default:
         setState(() {
-          moduleName = "Mağaza";
+          moduleName = "App";
           activeModule = "library";
         });
     }
@@ -56,7 +56,7 @@ class _MobileAppBarState extends State<MobileAppBar> {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: SelectableText(
-                "  ${widget.title == "Menü" ? moduleName : widget.title}",
+                "  ${widget.title == "Menu" ? moduleName : widget.title}",
                 style: TextStyle(
                     color: AppColors.headerIconColor,
                     fontWeight: FontWeight.w300,
@@ -64,40 +64,40 @@ class _MobileAppBarState extends State<MobileAppBar> {
               ),
             ),
           ),
-          if (widget.title == "Menü")
-            (Row(
-              children: [
-                IconButton(
-                    onPressed: () {
-                      ModularNavigator.toPush('/library/dashboard');
-                    },
-                    icon: Icon(
-                      Icons.storefront_outlined,
-                      color: activeModule == "library"
-                          ? AppColors.successBgColor
-                          : AppColors.headerIconColor,
-                      size: 18,
-                    )),
-                IconButton(
-                    onPressed: () {
-                      ModularNavigator.toPush('/order/dashboard');
-                    },
-                    icon: Icon(
-                      Icons.language,
-                      color: activeModule == "order"
-                          ? AppColors.successBgColor
-                          : AppColors.headerIconColor,
-                      size: 18,
-                    )),
-              ],
-            ))
+          // if (widget.title == "Menu")
+          //   (Row(
+          //     children: [
+          //       IconButton(
+          //           onPressed: () {
+          //             ModularNavigator.toPush('/library/dashboard');
+          //           },
+          //           icon: Icon(
+          //             Icons.home,
+          //             color: activeModule == "library"
+          //                 ? AppColors.successBgColor
+          //                 : AppColors.headerIconColor,
+          //             size: 18,
+          //           )),
+          //       IconButton(
+          //           onPressed: () {
+          //             ModularNavigator.toPush('/library/myProfile');
+          //           },
+          //           icon: Icon(
+          //             Icons.account_circle,
+          //             color: activeModule == "myProfile"
+          //                 ? AppColors.successBgColor
+          //                 : AppColors.headerIconColor,
+          //             size: 18,
+          //           )),
+          //     ],
+          //   ))
         ],
       ),
       backgroundColor: AppColors.headerColor,
       elevation: 0.0,
       titleSpacing: 0,
       centerTitle: false,
-      automaticallyImplyLeading: widget.title == 'Menü' ? false : true,
+      automaticallyImplyLeading: widget.title == 'Menu' ? false : true,
       foregroundColor: AppColors.headerIconColor,
 
       // leading: title != "Menu"

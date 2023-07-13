@@ -39,14 +39,14 @@ class _LibraryScaffoldState extends State<LibraryScaffold> {
         itemBuilder: (context) => [
           PopupMenuItem(
             value: 1,
-            child: const Text("Hesap Ayarları"),
+            child: const Text("My Profile"),
             onTap: () {
-              ModularNavigator.toPush('/library/userSettings');
+              ModularNavigator.toPush('/library/myProfile');
             },
           ),
           PopupMenuItem(
             value: 2,
-            child: const Text("Çıkış"),
+            child: const Text("Logout"),
             onTap: () {
               ModularNavigator.toPush('/logout');
             },
@@ -70,7 +70,7 @@ class _LibraryScaffoldState extends State<LibraryScaffold> {
                       if (state is AuthenticationSuccess) {
                         return TextButton.icon(
                             onPressed: () {
-                              ModularNavigator.toPush('/library/userSettings');
+                              ModularNavigator.toPush('/library/myProfile');
                             },
                             icon: Icon(
                               Icons.person,
@@ -117,7 +117,7 @@ class _LibraryScaffoldState extends State<LibraryScaffold> {
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           margin: const EdgeInsets.only(top: 12, bottom: 12),
                           decoration: BoxDecoration(
-                              color: AppColors.successColor,
+                              color: AppColors.sideActiveColor,
                               borderRadius: BorderRadius.circular(10)),
                           child: Row(
                             children: [
@@ -162,10 +162,10 @@ class _LibraryScaffoldState extends State<LibraryScaffold> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (!_screen.isMobile)
-                        (DesktopBreadcrump(
-                          title: widget.title.toString(),
-                        )),
+                      // if (!_screen.isMobile)
+                      //   (DesktopBreadcrump(
+                      //     title: widget.title.toString(),
+                      //   )),
                       Flexible(
                         child: Container(
                           //padding: const EdgeInsets.only(top: 12),

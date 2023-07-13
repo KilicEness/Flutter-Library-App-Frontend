@@ -19,7 +19,7 @@ class CardContainer extends StatelessWidget {
       this.margin,
       this.padding,
       this.borderColor,
-      this.borderRadius = 0})
+      this.borderRadius = 10})
       : super(key: key);
 
   @override

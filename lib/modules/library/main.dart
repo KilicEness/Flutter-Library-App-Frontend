@@ -105,6 +105,6 @@ class Library extends Module {
         ChildRoute('/books/create', child: (_, args) => AddBookPage()),
         ChildRoute('/myProfile', child: (_, args) => MyProfilePage()),
         ChildRoute('/editProfile', child: (_, args) => EditProfilePage()),
-        ChildRoute('/editBook', child: (_, args) => EditBookPage()),
+        ChildRoute('/editBook', child: (_, args) => EditBookPage(bookId: args.params['bookId'])),
       ];
 }

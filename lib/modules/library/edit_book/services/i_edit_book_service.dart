@@ -1,6 +1,10 @@
-import '/shared/models/book_detail.dart';
+import '../models/book_have_id.dart';
 
 abstract class IEditBookService {
-  Future<BookDetailModel> editBook(
-      {String? name, String? author, bool? completed});
+  Future<BookModel> editBook(
+      {String? name, String? author, bool? completed, required String bookId});
+
+  Future<BookModel> fetchBook({
+    required String bookId,
+  });
 }

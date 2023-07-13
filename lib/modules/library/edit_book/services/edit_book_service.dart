@@ -1,5 +1,5 @@
-import 'package:library_app/shared/helpers/networking.dart';
-import 'package:library_app/shared/models/book_detail.dart';
+import '../models/book_have_id.dart';
+import '/shared/helpers/networking.dart';
 
 import './i_edit_book_service.dart';
 
@@ -8,16 +8,28 @@ class EditBookService implements IEditBookService {
 
   EditBookService({required this.network});
 
-  @override
-  Future<BookDetailModel> editBook(
-      {String? name, String? author, bool? completed}) async {
+ @override
+  Future<BookModel> fetchBook(
+      {required String bookId}) async {
     try {
-      var response = await network.patch('/books', data: {
+      var response = await network.get('/books/$bookId');
+      var model = BookModel.fromResponse(response.data);
+      return model;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  @override
+  Future<BookModel> editBook(
+      {String? name, String? author, bool? completed, required String bookId}) async {
+    try {
+      var response = await network.patch('/books/$bookId', data: {
         'name': name,
         'author': author,
         'completed': completed,
       });
-      var result = BookDetailModel.fromResponse(response.data['result']);
+      var result = BookModel.fromResponse(response.data['result']);
       return result;
     } catch (e) {
       throw e.toString();

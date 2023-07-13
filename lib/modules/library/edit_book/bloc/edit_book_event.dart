@@ -7,10 +7,15 @@ abstract class EditBookEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class BookFetch extends EditBookEvent {
+  final String bookId;
+  const BookFetch(this.bookId);
+}
+
 class EditBookUpdate extends EditBookEvent {
   final String? name;
   final String? author;
   final bool? completed;
 
-  EditBookUpdate({this.name, this.author, this.completed});
+  const EditBookUpdate({this.name, this.author, this.completed});
 }
