@@ -22,14 +22,14 @@ class EditBookService implements IEditBookService {
 
   @override
   Future<BookModel> editBook(
-      {String? name, String? author, bool? completed, required String bookId}) async {
+      {String? name, String? author, bool? completed, String? bookId}) async {
     try {
       var response = await network.patch('/books/$bookId', data: {
         'name': name,
         'author': author,
         'completed': completed,
       });
-      var result = BookModel.fromResponse(response.data['result']);
+      var result = BookModel.fromResponse(response.data);
       return result;
     } catch (e) {
       throw e.toString();

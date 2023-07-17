@@ -10,7 +10,7 @@ class EditBookPage extends StatefulWidget {
   final EditBookBloc _editBookBloc = Modular.get<EditBookBloc>();
 
   EditBookPage({Key? key, required this.bookId}) : super(key: key) {
-    _editBookBloc.add(BookFetch(bookId));
+    // _editBookBloc.add(BookFetch(bookId));
   }
 
   @override
@@ -18,11 +18,11 @@ class EditBookPage extends StatefulWidget {
 }
 
 class _EditBookPageState extends State<EditBookPage> {
-  // String? name;
-  // String? author;
+  String? name;
+  String? author;
   bool? completed;
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _authorController = TextEditingController();
+  // final TextEditingController _nameController = TextEditingController();
+  // final TextEditingController _authorController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -40,8 +40,8 @@ class _EditBookPageState extends State<EditBookPage> {
             } else if (state is EditBookFailure) {
               return Center(child: Text(state.message));
             } else if (state is EditBookSuccess) {
-              _nameController.text = state.book.name;
-              _authorController.text = state.book.author;
+              // _nameController.text = state.book.name;
+              // _authorController.text = state.book.author;
               return Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Form(
@@ -54,12 +54,12 @@ class _EditBookPageState extends State<EditBookPage> {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       TextFormField(
-                        controller: _nameController,
-                        // onChanged: (value) {
-                        //   setState(() {
-                        //     name = value;
-                        //   });
-                        // },
+                        // controller: _nameController,
+                        onChanged: (value) {
+                          setState(() {
+                            name = value;
+                          });
+                        },
                       ),
                       const SizedBox(height: 16.0),
                       const Text(
@@ -67,35 +67,39 @@ class _EditBookPageState extends State<EditBookPage> {
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                       TextFormField(
-                        controller: _authorController,
+                        // controller: _authorController,
 
-                        // onChanged: (value) {
-                        //   setState(() {
-                        //     author = value;
-                        //   });
-                        // },
+                        onChanged: (value) {
+                          setState(() {
+                            author = value;
+                          });
+                        },
                       ),
                       const SizedBox(height: 16.0),
-                      // const Text(
-                      //   'Completed',
-                      //   style: TextStyle(fontWeight: FontWeight.bold),
-                      // ),
-                      // Checkbox(
-                      //   value: completed,
-                      //   onChanged: (value) {
-                      //     setState(() {
-                      //       completed = value;
-                      //     });
-                      //   },
-                      // ),
-                      // const SizedBox(height: 16.0),
+                      const Text(
+                        'Completed',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Checkbox(
+                        value: completed,
+                        onChanged: (value) {
+                          setState(() {
+                            completed = value;
+                          });
+                        },
+                      ),
+                      const SizedBox(height: 16.0),
                       ElevatedButton(
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
+                          if (_formKey.currentState != null &&
+                              _formKey.currentState!.validate()) {
                             widget._editBookBloc.add(EditBookUpdate(
-                              name: _nameController.text,
-                              author: _authorController.text,
-                              // completed: completed!,
+                              name: name ??
+                                  '', // Add the null check operator (??) with a fallback value
+                              author: author ??
+                                  '', // Add the null check operator (??) with a fallback value
+                              completed: completed ??
+                                  false, // Add the null check operator (??) with a fallback value
                             ));
                           }
                         },

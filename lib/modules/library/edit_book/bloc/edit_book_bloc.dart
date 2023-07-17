@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../models/book_have_id.dart';
-import 'package:library_app/shared/helpers/local_storage.dart';
 
 import '../services/i_edit_book_service.dart';
 
@@ -15,7 +14,7 @@ class EditBookBloc extends Bloc<EditBookEvent, EditBookState> {
     on<BookFetch>(_onBookFetch);
   }
 
-  void _onBookFetch(event, emit) async {
+  void _onBookFetch(BookFetch event, Emitter<EditBookState> emit) async {
     emit(EditBookLoading());
     try {
       var result = await iEditBookService.fetchBook(bookId: event.bookId);
@@ -29,13 +28,10 @@ class EditBookBloc extends Bloc<EditBookEvent, EditBookState> {
     if (event is EditBookUpdate) {
       emit(EditBookLoading());
       try {
-        ILocalStorage localStorage = SPStorage();
-        var bookId = await localStorage.getData('bookId');
         final updatedBook = await iEditBookService.editBook(
           name: event.name,
           author: event.author,
           completed: event.completed,
-          bookId: bookId,
         );
         emit(EditBookSuccess(book: updatedBook));
       } catch (e) {

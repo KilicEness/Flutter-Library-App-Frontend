@@ -36,14 +36,14 @@ class _LogOutPageState extends State<LogOutPage> {
           height: 30,
         ),
         Text(
-          'Çıkış yapılıyor.',
+          'Logout.',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         SizedBox(
           height: 10,
         ),
         Text(
-          'Lütfen bekleyiniz..',
+          'Please wait..',
           style: TextStyle(fontWeight: FontWeight.w200, fontSize: 17),
         )
       ],
